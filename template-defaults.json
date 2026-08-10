@@ -1,0 +1,9 @@
+{
+  "Shiori": {
+    "PORT":"8080",
+    "SHIORI_DIR":"/shiori",
+    "SHIORI_HTTP_SECRET_KEY":"${{secret(48, \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\")}}",
+    "SHIORI_USERNAME":"owner",
+    "SHIORI_PASSWORD":"${{secret(32, \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\")}}"
+  }
+}
