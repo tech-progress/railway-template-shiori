@@ -5,6 +5,5 @@ COPY --from=upstream /usr/bin/shiori /usr/bin/shiori
 COPY railway-entrypoint.sh /usr/local/bin/railway-entrypoint
 RUN chmod 0755 /usr/local/bin/railway-entrypoint
 ENV PORT=8080 SHIORI_DIR=/shiori
-VOLUME /shiori
 EXPOSE 8080
 ENTRYPOINT ["/usr/local/bin/railway-entrypoint"]

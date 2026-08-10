@@ -2,7 +2,7 @@
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 for file in .railway/railway.ts Dockerfile railway-entrypoint.sh CHANGELOG.md FINDINGS.md LICENSE_REVIEW.md MARKETPLACE.md PUBLISHING.md README.md SUPPORT.md UPGRADE.md VERSION compose.yaml package.json template-defaults.json template-descriptions.json template-networking.json template-volumes.json scripts/audit-template.sh scripts/check-standalone.sh scripts/restore-template-draft.sh scripts/smoke.sh; do test -f "${root}/${file}"; done
-[[ "$(<"${root}/VERSION")" == 1.0.0 ]]; for file in "${root}"/template-*.json; do jq empty "${file}"; done; for file in "${root}"/scripts/*.sh; do bash -n "${file}"; done; sh -n "${root}/railway-entrypoint.sh"
+[[ "$(<"${root}/VERSION")" == 1.0.1 ]]; for file in "${root}"/template-*.json; do jq empty "${file}"; done; for file in "${root}"/scripts/*.sh; do bash -n "${file}"; done; sh -n "${root}/railway-entrypoint.sh"
 SHIORI_PASSWORD=verify docker compose -f "${root}/compose.yaml" config --quiet
 graph="$(cd "${root}" && ./node_modules/.bin/railway-iac-ts .railway/railway.ts)"
 jq -e '.ok==true and ([.graph.resources[]|select(.type=="service")|.name])==["Shiori"] and ([.graph.resources[]|select(.type=="volume")]|length)==1' <<<"${graph}" >/dev/null
