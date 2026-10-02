@@ -1,5 +1,7 @@
 # Shiori on Railway
 
+The current template release is `v1.0.2`. It retains Shiori `1.8.0` and uses Alpine `3.23.6`, with both images pinned by immutable digest.
+
 Deploy [Shiori](https://github.com/go-shiori/shiori) 1.8.0 as a bookmark manager with generated owner credentials and durable archives. A small Alpine wrapper starts the pinned upstream binary privately, replaces Shiori's documented first-boot credential, then exposes the normal application with bearer-token API support.
 
 ## Deploy on Railway
